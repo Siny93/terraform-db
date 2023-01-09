@@ -13,7 +13,7 @@ resource "null_resource" "db" {
       host = aws_spot_instance_request.db.private_ip
     }
     inline = [
-      "ansible-pull -U https://github.com/Siny93/ANSIBLE1.git roboshop-pull.yml -e COMPONENT=mongodb -e ENV=${var.ENV}"
+      "ansible-pull -U https://github.com/Siny93/ANSIBLE1.git roboshop-pull.yml -e COMPONENT=${var.DB_COMPONENT} -e ENV=${var.ENV}"
     ]
   }
 }
