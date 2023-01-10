@@ -1,7 +1,6 @@
 resource "aws_db_instance" "default" {
   identifier           = "mysql-${var.ENV}"
   allocated_storage    = 10
-  db_name              = "mydb"
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
