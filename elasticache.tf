@@ -39,3 +39,7 @@ resource "aws_security_group" "redis" {
     Name = "sg_redis_${var.ENV}"
   }
 }
+
+output "test" {
+  value = aws_elasticache_cluster.redis
+}
