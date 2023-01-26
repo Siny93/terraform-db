@@ -10,7 +10,7 @@ module "mongodb" {
   PRIVATE_SUBNET_CIDR = data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR
   ALL_SUBNET_CIDR = concat(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_CIDR,tolist([data.terraform_remote_state.vpc.outputs.DEFAULT_VPC_CIDR]))
   DB_COMPONENT = "mongodb"
-  DB_PORT = 27107
+  DB_PORT = 27017
   PRIVATE_HOSTED_ZONE_ID = data.terraform_remote_state.vpc.outputs.PRIVATE_HOSTED_ZONE_ID
 
 }
