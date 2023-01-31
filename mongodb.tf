@@ -1,7 +1,7 @@
 module "mongodb" {
   source = "./module/ec2"
-  SSH_USERNAME = nonsensitive(jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["SSH_USERNAME"])
-  SSH_PASSWORD = nonsensitive(jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["SSH_PASSWORD"])
+  SSH_USERNAME = (jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["SSH_USERNAME"])
+  SSH_PASSWORD = (jsondecode(data.aws_secretsmanager_secret_version.secrets.secret_string)["SSH_PASSWORD"])
   ENV = var.ENV
   AMI = data.aws_ami.ami.id
   INSTANCE_TYPE = var.MONGODB_INSTANCE_TYPE
